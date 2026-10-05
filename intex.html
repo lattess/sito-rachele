@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Per Rachele ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: Georgia, serif;
+            background: linear-gradient(
+                135deg,
+                #ffb6d9,
+                #ff72ad,
+                #ff9bc8,
+                #ffc9e3
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+        }
+
+
+        /* =========================
+           CARD PRINCIPALE
+        ========================= */
+
+        .card {
+            width: 90%;
+            max-width: 700px;
+
+            padding: 45px 30px;
+
+            text-align: center;
+
+            color: white;
+
+            background: rgba(255,255,255,0.25);
+
+            backdrop-filter: blur(15px);
+
+            border: 2px solid rgba(255,255,255,0.5);
+
+            border-radius: 35px;
+
+            box-shadow:
+                0 20px 60px rgba(150,20,80,0.35);
+
+            z-index: 50;
+        }
+
+
+        /* =========================
+           CUORE PRINCIPALE
+        ========================= */
+
+        .main-heart {
+
+            font-size: 75px;
+
+            animation:
+                heartbeat 1.2s infinite;
+
+        }
+
+
+        @keyframes heartbeat {
+
+            0%,100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+        }
+
+
+        h1 {
+
+            font-size: 70px;
+
+            margin: 10px 0;
+
+            text-shadow:
+                0 0 10px #ff2f7d,
+                0 0 30px #ff2f7d;
+
+        }
+
+
+        h2 {
+
+            font-size: 25px;
+
+            font-weight: normal;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .message {
+
+            font-size: 20px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .love {
+
+            margin-top: 25px;
+
+            font-size: 25px;
+
+        }
+
+
+        /* =========================
+           BOTTONI
+        ========================= */
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 30px;
+
+        }
+
+
+        button {
+
+            border: none;
+
+            padding: 15px 25px;
+
+            border-radius: 50px;
+
+            background: white;
+
+            color: #e83f83;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 6px 20px rgba(100,0,50,0.25);
+
+        }
+
+
+        button:hover {
+
+            transform: scale(1.1);
+
+            background: #fff0f7;
+
+        }
+
+
+        /* =========================
+           CUORI CLICCABILI
+        ========================= */
+
+        .heart-container {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 12px;
+
+            max-width: 500px;
+
+            margin: 30px auto 0;
+
+        }
+
+
+        .click-heart {
+
+            font-size: 35px;
+
+            padding: 10px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,0.15);
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+
+        .click-heart:hover {
+
+            transform:
+                scale(1.2)
+                rotate(10deg);
+
+        }
+
+
+        #heartMessage {
+
+            margin-top: 20px;
+
+            font-size: 19px;
+
+            min-height: 30px;
+
+        }
+
+
+        /* =========================
+           SORPRESA
+        ========================= */
+
+        #secret {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.2);
+
+            font-size: 21px;
+
+            line-height: 1.6;
+
+            animation: appear 0.6s ease;
+
+        }
+
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform: scale(0.6);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: scale(1);
+
+            }
+
+        }
+
+
+        /* ==================================================
+           CUORI CHE GIRANO PER LO SCHERMO
+        ================================================== */
+
+        .rotating-heart {
+
+            position: absolute;
+
+            font-size: 35px;
+
+            z-index: 5;
+
+            pointer-events: none;
+
+            animation:
+                rotateHeart 4s linear infinite;
+
+        }
+
+
+        @keyframes rotateHeart {
+
+            0% {
+
+                transform:
+                    rotate(0deg)
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    rotate(180deg)
+                    scale(1.5);
+
+            }
+
+            100% {
+
+                transform:
+                    rotate(360deg)
+                    scale(1);
+
+            }
+
+        }
+
+
+        /* Posizioni dei cuori */
+
+        .heart1 {
+
+            top: 5%;
+
+            left: 8%;
+
+        }
+
+        .heart2 {
+
+            top: 15%;
+
+            right: 10%;
+
+            animation-duration: 5s;
+
+        }
+
+        .heart3 {
+
+            bottom: 10%;
+
+            left: 8%;
+
+            animation-duration: 6s;
+
+        }
+
+        .heart4 {
+
+            bottom: 15%;
+
+            right: 8%;
+
+            animation-duration: 4.5s;
+
+        }
+
+        .heart5 {
+
+            top: 45%;
+
+            left: 3%;
+
+            animation-duration: 5.5s;
+
+        }
+
+        .heart6 {
+
+            top: 40%;
+
+            right: 3%;
+
+            animation-duration: 4s;
+
+        }
+
+
+        /* ==================================================
+           SCRITTE TI AMO CHE RIMBALZANO
+        ================================================== */
+
+        .love-text {
+
+            position: absolute;
+
+            color: rgba(255,255,255,0.85);
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            white-space: nowrap;
+
+            pointer-events: none;
+
+            z-index: 2;
+
+            text-shadow:
+                0 0 8px #ff2f7d;
+
+        }
+
+
+        /* ==================================================
+           CUORI DELLA PIOGGIA
+        ================================================== */
+
+        .floating-heart {
+
+            position: fixed;
+
+            bottom: -60px;
+
+            pointer-events: none;
+
+            z-index: 100;
+
+            animation:
+                floatUp 5s linear forwards;
+
+        }
+
+
+        @keyframes floatUp {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 1;
+
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(720deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width:600px) {
+
+            h1 {
+
+                font-size: 50px;
+
+            }
+
+            .heart-container {
+
+                gap: 5px;
+
+            }
+
+            .click-heart {
+
+                font-size: 25px;
+
+            }
+
+            .love-text {
+
+                font-size: 16px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         CUORI CHE GIRANO
+    ========================================== -->
+
+    <div class="rotating-heart heart1">❤️</div>
+
+    <div class="rotating-heart heart2">💗</div>
+
+    <div class="rotating-heart heart3">💖</div>
+
+    <div class="rotating-heart heart4">💕</div>
+
+    <div class="rotating-heart heart5">💞</div>
+
+    <div class="rotating-heart heart6">💘</div>
+
+
+
+    <!-- =========================================
+         SCRITTE CHE RIMBALZANO
+    ========================================== -->
+
+    <div class="love-text">TI AMO ❤️</div>
+
+    <div class="love-text">TI AMO 💗</div>
+
+    <div class="love-text">TI AMO 💖</div>
+
+    <div class="love-text">TI AMO 💕</div>
+
+    <div class="love-text">TI AMO ❤️</div>
+
+
+
+    <!-- =========================================
+         SITO PRINCIPALE
+    ========================================== -->
+
+    <div class="card">
+
+        <div class="main-heart">
+
+            ❤️
+
+        </div>
+
+
+        <h1>
+
+            Rachele
+
+        </h1>
+
+
+        <h2>
+
+            l'amore della mia vita 💕
+
+        </h2>
+
+
+        <p class="message">
+
+            Ho creato questo piccolo angolo
+            solo per te.
+
+            <br>
+
+            Perché tra tutte le persone
+            del mondo,
+
+            <br>
+
+            il mio cuore ha scelto te. ❤️
+
+        </p>
+
+
+        <div class="love">
+
+            Rachele ❤️ Rachele ❤️ Rachele
+
+        </div>
+
+
+
+        <div class="buttons">
+
+            <button onclick="sorpresa()">
+
+                💗 Una sorpresa
+
+            </button>
+
+
+            <button onclick="pioggiaCuori()">
+
+                ❤️ Pioggia d'amore
+
+            </button>
+
+        </div>
+
+
+
+        <div id="secret">
+
+            Rachele, sei speciale per me
+            in un modo che è difficile
+            spiegare a parole.
+
+            <br><br>
+
+            <strong>
+
+                Ti amo da morire. ❤️
+
+            </strong>
+
+        </div>
+
+
+
+        <h2 style="margin-top:30px">
+
+            Tocca i cuori 💕
+
+        </h2>
+
+
+
+        <div class="heart-container">
+
+            <div class="click-heart"
+                 onclick="messaggio(0)">
+                💗
+            </div>
+
+            <div class="click-heart"
+                 onclick="messaggio(1)">
+                ❤️
+            </div>
+
+            <div class="click-heart"
+                 onclick="messaggio(2)">
+                💖
+            </div>
+
+            <div class="click-heart"
+                 onclick="messaggio(3)">
+                💕
+            </div>
+
+            <div class="click-heart"
+                 onclick="messaggio(4)">
+                💞
+            </div>
+
+            <div class="click-heart"
+                 onclick="messaggio(5)">
+                ❤️
+            </div>
+
+            <div class="click-heart"
+                 onclick="messaggio(6)">
+                💗
+            </div>
+
+            <div class="click-heart"
+                 onclick="messaggio(7)">
+                💘
+            </div>
+
+            <div class="click-heart"
+                 onclick="messaggio(8)">
+                💖
+            </div>
+
+            <div class="click-heart"
+                 onclick="messaggio(9)">
+                ❤️
+            </div>
+
+        </div>
+
+
+        <p id="heartMessage"></p>
+
+    </div>
+
+
+
+    <script>
+
+
+        /* =========================================
+           MESSAGGI DEI CUORI
+        ========================================== */
+
+        const messaggi = [
+
+            "Sei il mio pensiero preferito. ❤️",
+
+            "Con te tutto è più bello. 💕",
+
+            "Il mio cuore fa boom per te. 💗",
+
+            "Rachele, sei unica. 💖",
+
+            "Ti sceglierei ancora e ancora. ❤️",
+
+            "Sei una persona speciale. 💞",
+
+            "Il tuo sorriso vale più di mille parole. 💗",
+
+            "Il mio cuore ha scelto te. ❤️",
+
+            "Rachele, sei importantissima per me. 💖",
+
+            "Ti amo da morire. ❤️"
+
+        ];
+
+
+        function messaggio(numero) {
+
+            document.getElementById(
+                "heartMessage"
+            ).innerHTML = messaggi[numero];
+
+        }
+
+
+
+        /* =========================================
+           SORPRESA
+        ========================================== */
+
+        function sorpresa() {
+
+            document.getElementById(
+                "secret"
+            ).style.display = "block";
+
+
+            pioggiaCuori();
+
+        }
+
+
+
+        /* =========================================
+           PIOGGIA DI CUORI
+        ========================================== */
+
+        function pioggiaCuori() {
+
+            const cuori = [
+
+                "❤️",
+                "💗",
+                "💖",
+                "💕",
+                "💞",
+                "💘"
+
+            ];
+
+
+            for(let i = 0; i < 35; i++) {
+
+                const cuore =
+                    document.createElement("div");
+
+
+                cuore.className =
+                    "floating-heart";
+
+
+                cuore.innerHTML =
+                    cuori[
+                        Math.floor(
+                            Math.random() *
+                            cuori.length
+                        )
+                    ];
+
+
+                cuore.style.left =
+                    Math.random() * 100 + "vw";
+
+
+                cuore.style.fontSize =
+                    20 +
+                    Math.random() * 35 +
+                    "px";
+
+
+                cuore.style.animationDuration =
+                    3 +
+                    Math.random() * 4 +
+                    "s";
+
+
+                document.body.appendChild(
+                    cuore
+                );
+
+
+                setTimeout(() => {
+
+                    cuore.remove();
+
+                }, 7000);
+
+            }
+
+        }
+
+
+
+        /* =========================================
+           SCRITTE "TI AMO" CHE RIMBALZANO
+        ========================================== */
+
+        const scritte =
+            document.querySelectorAll(
+                ".love-text"
+            );
+
+
+        const dati = [];
+
+
+        scritte.forEach((scritta, index) => {
+
+            dati.push({
+
+                elemento: scritta,
+
+                x: Math.random() *
+                    (window.innerWidth - 120),
+
+                y: Math.random() *
+                    (window.innerHeight - 40),
+
+                dx:
+                    (Math.random() > 0.5 ? 1 : -1)
+                    *
+                    (1 + Math.random() * 2),
+
+                dy:
+                    (Math.random() > 0.5 ? 1 : -1)
+                    *
+                    (1 + Math.random() * 2)
+
+            });
+
+        });
+
+
+
+        function animaScritte() {
+
+            dati.forEach(dato => {
+
+                const larghezza =
+                    dato.elemento.offsetWidth;
+
+                const altezza =
+                    dato.elemento.offsetHeight;
+
+
+                dato.x += dato.dx;
+
+                dato.y += dato.dy;
+
+
+                if(
+                    dato.x <= 0 ||
+                    dato.x + larghezza >=
+                    window.innerWidth
+                ) {
+
+                    dato.dx *= -1;
+
+                }
+
+
+                if(
+                    dato.y <= 0 ||
+                    dato.y + altezza >=
+                    window.innerHeight
+                ) {
+
+                    dato.dy *= -1;
+
+                }
+
+
+                dato.elemento.style.left =
+                    dato.x + "px";
+
+
+                dato.elemento.style.top =
+                    dato.y + "px";
+
+            });
+
+
+            requestAnimationFrame(
+                animaScritte
+            );
+
+        }
+
+
+        animaScritte();
+
+
+    </script>
+
+
+</body>
+
+</html>
